@@ -13,4 +13,4 @@ The project was developed for the Mixed Messages Project, part of the Full-Stack
 
 ## Technologies
 - JavaScript 
-- Node.js (version 14.15.1)
+- Node.js (version 20.14.0)
