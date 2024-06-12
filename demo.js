@@ -3,40 +3,36 @@ function generateRandomNumber(num) {
     return Math.floor(Math.random() * num)
   }
   
-  const collectiveWisdom = {
-    signInfo: ['star', 'moon', 'sun', 'comet'],
-    fortuneOutput: ['terrible luck', 'bad luck', 'ok luck', 'good luck', 'great luck'],
-    advice: ['go out and eat', 'not read this', 'play more', 'trust no one']
+  const humanReaction = {
+    reactionInfo: ['Happiness', 'Sadness', 'Fear', 'Anger' , 'Disgust', 'Surprise'],
+    reactionOutput: ['smile', 'drooping the eyelids', 'open eyes', 'tight lips', 'wrinkled nose', 'open mouth'],
+    reactionAdvice: ['Lets put a smile on that face', 'Fear is the mind killer', 'Run run Runaway Runaway baby!', 'Hulk smash!', 'Eww Whats That Brother?', 'Surprise Motherfucker!']
   }
   
-  // Store the 'wisdom' in an array
-  let personalWisdom = []
+  // Store the 'reaction' in an array
+  let personalReaction = []
   
-  // Iterate over the object
-  for(let prop in collectiveWisdom) {
-    let optionIdx = generateRandomNumber(collectiveWisdom[prop].length)
-  
-    // use the object's properties to customize the message being added to personalWisdom  
-    switch(prop) {
-      case 'signInfo':
-        personalWisdom.push(`Your sign right now is a "${collectiveWisdom[prop][optionIdx]}".`)
-        break
-      case 'fortuneOutput':
-        personalWisdom.push(`You are having: "${collectiveWisdom[prop][optionIdx]}".`)
-        break
-      case 'advice':
-        personalWisdom.push(`You should: "${collectiveWisdom[prop][optionIdx]}".`)
-        break
-      default:
-        personalWisdom.push('There is not enough info.')
+  // use the object's properties to customize the message being added to humanReaction  
+    for (let prop in humanReaction) {
+      let optionIdx = generateRandomNumber(humanReaction[prop].length);
+    
+      // use the object's properties to customize the message being added to personalReaction  
+      if (prop === 'reactionInfo') {
+        personalReaction.push(`Your reaction right now is "${humanReaction[prop][optionIdx]}".`);
+      } else if (prop === 'reactionOutput') {
+        personalReaction.push(`You are showing: "${humanReaction[prop][optionIdx]}".`);
+      } else if (prop === 'reactionAdvice') {
+        personalReaction.push(`You should: "${humanReaction[prop][optionIdx]}".`);
+      } else {
+        personalReaction.push('There is not enough info.');
+      }
     }
-  }
   
-  function formatWisdom(wisdom) {
+  function formatReaction(reaction) {
     // Add some ASCII here?
     // Add in more symbols to the array? like emojies or what not?
-    const formatted = personalWisdom.join('\n')
+    const formatted = personalReaction.join('\n')
     console.log(formatted)
   }
   
-  formatWisdom(personalWisdom);
+  formatReaction(personalReaction);
